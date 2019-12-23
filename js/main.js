@@ -1,6 +1,6 @@
 // Initial Value
 const LoadMoreNumber = 4;
-const LoadMoreNumberAll = 1;
+const LoadMoreNumberAll = 5;
 
 // Object
 const GalleryImagesObject = [
@@ -98,7 +98,7 @@ $(document).ready(function () {
 
             var winHeight = $(window).height(),
                 topOffset = $("#infinityGallery").offset().top,
-                elementHeight = $('#infinityGallery').height()
+                elementHeight = $('#infinityGallery').height();
             var top = topOffset - winHeight + elementHeight;
 
             $('html, body').animate({
@@ -118,21 +118,45 @@ function createDomeObject(imageObject) {
     }
 }
 
+function loadImages(category) {
+    if (category === 'all') {
+
+        let totalIndex = LoadMoreNumberAll,
+            totalCategory = uniqueCategories.length;
+
+        while (totalCategory >= 0 && totalIndex > 0) {
+            console.log(totalCategory);
+            uniqueCategories.forEach(categoryName => {
+                if (totalCategory >= 0 && totalIndex > 0) {
+                    createDome(arraySpilt(categoryName));
+                }
+            });
+        }
+
+        function arraySpilt(categoryName) {
+            let aaa = createDomeArray(categoryName, 1);
+            if (aaa.length) {
+                totalIndex--;
+            } else {
+                totalCategory--;
+            }
+            return aaa;
+        }
+
+    } else {
+        createDome(createDomeArray(category, LoadMoreNumber))
+    }
+}
+
+//
+
 function createDomeArray(category, load) {
     const Parent = document.getElementById("infinityImagesLoad");
     let index = Parent.getElementsByClassName(category).length;
     // console.log(index);
     let endIndex = index + load;
+    console.log(categoriesObject[category].slice(index, endIndex));
     return categoriesObject[category].slice(index, endIndex)
-}
-
-
-function loadImages(category) {
-    if (category === 'all') {
-        uniqueCategories.forEach(categoryName => createDome(createDomeArray(categoryName, LoadMoreNumberAll)));
-    } else {
-        createDome(createDomeArray(category, LoadMoreNumber))
-    }
 }
 
 
