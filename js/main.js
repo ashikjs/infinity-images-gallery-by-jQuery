@@ -79,7 +79,7 @@ $(selector).on('click', function () {
     if (category === 'all') {
         $('.ig-images').css('display', 'block')
     } else {
-        $('.ig-images').css('display', 'none')
+        $('.ig-images').css('display', 'none');
         $('.' + category).css('display', 'block')
     }
 });
@@ -91,6 +91,20 @@ $(document).ready(function () {
     $(selector).on('click', function () {
         const category = $('#galleryCategoryList ul li.active').attr('data-category');
         loadImages(category);
+
+        // var scr = $('#infinityGallery')[0].scrollHeight;
+
+        setTimeout(function () {
+
+            var winHeight = $(window).height(),
+                topOffset = $("#infinityGallery").offset().top,
+                elementHeight = $('#infinityGallery').height()
+            var top = topOffset - winHeight + elementHeight;
+
+            $('html, body').animate({
+                scrollTop: top
+            }, 500);
+        }, 200)
     });
 });
 
@@ -107,7 +121,7 @@ function createDomeObject(imageObject) {
 function createDomeArray(category, load) {
     const Parent = document.getElementById("infinityImagesLoad");
     let index = Parent.getElementsByClassName(category).length;
-    console.log(index);
+    // console.log(index);
     let endIndex = index + load;
     return categoriesObject[category].slice(index, endIndex)
 }
