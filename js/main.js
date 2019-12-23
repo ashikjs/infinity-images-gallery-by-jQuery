@@ -1,6 +1,6 @@
 // Initial Value
-const LoadMoreNumber = 4;
-const LoadMoreNumberAll = 5;
+const LoadMoreNumber = 3;
+const LoadMoreNumberAll = 6;
 
 // Object
 const GalleryImagesObject = [
@@ -18,7 +18,7 @@ const GalleryImagesObject = [
     },
     {
         url: 'https://i.picsum.photos/id/103/1400/800.jpg',
-        category: 'nature'
+        category: 'sky'
     },
     {
         url: 'https://i.picsum.photos/id/104/1400/800.jpg',
@@ -46,7 +46,7 @@ const GalleryImagesObject = [
     },
     {
         url: 'https://i.picsum.photos/id/110/1400/800.jpg',
-        category: 'nature'
+        category: 'sky'
     },
     {
         url: 'https://i.picsum.photos/id/111/1400/800.jpg',
@@ -59,6 +59,90 @@ const GalleryImagesObject = [
     {
         url: 'https://i.picsum.photos/id/113/1400/800.jpg',
         category: 'nature'
+    },
+    {
+        url: 'https://i.picsum.photos/id/118/1400/800.jpg',
+        category: 'technology'
+    },
+    {
+        url: 'https://i.picsum.photos/id/119/1400/800.jpg',
+        category: 'sky'
+    },
+    {
+        url: 'https://i.picsum.photos/id/120/1400/800.jpg',
+        category: 'nature'
+    },
+    {
+        url: 'https://i.picsum.photos/id/121/1400/800.jpg',
+        category: 'art'
+    },
+    {
+        url: 'https://i.picsum.photos/id/122/1400/800.jpg',
+        category: 'nature'
+    },
+    {
+        url: 'https://i.picsum.photos/id/123/1400/800.jpg',
+        category: 'sky'
+    },
+    {
+        url: 'https://i.picsum.photos/id/124/1400/800.jpg',
+        category: 'technology'
+    },
+    {
+        url: 'https://i.picsum.photos/id/126/1400/800.jpg',
+        category: 'art'
+    },
+    {
+        url: 'https://i.picsum.photos/id/127/1400/800.jpg',
+        category: 'sky'
+    },
+    {
+        url: 'https://i.picsum.photos/id/128/1400/800.jpg',
+        category: 'technology'
+    },
+    {
+        url: 'https://i.picsum.photos/id/129/1400/800.jpg',
+        category: 'art'
+    },
+    {
+        url: 'https://i.picsum.photos/id/130/1400/800.jpg',
+        category: 'nature'
+    },
+    {
+        url: 'https://i.picsum.photos/id/131/1400/800.jpg',
+        category: 'technology'
+    },
+    {
+        url: 'https://i.picsum.photos/id/132/1400/800.jpg',
+        category: 'sky'
+    },
+    {
+        url: 'https://i.picsum.photos/id/133/1400/800.jpg',
+        category: 'nature'
+    },
+    {
+        url: 'https://i.picsum.photos/id/134/1400/800.jpg',
+        category: 'art'
+    },
+    {
+        url: 'https://i.picsum.photos/id/135/1400/800.jpg',
+        category: 'nature'
+    },
+    {
+        url: 'https://i.picsum.photos/id/136/1400/800.jpg',
+        category: 'sky'
+    },
+    {
+        url: 'https://i.picsum.photos/id/137/1400/800.jpg',
+        category: 'technology'
+    },
+    {
+        url: 'https://i.picsum.photos/id/140/1400/800.jpg',
+        category: 'art'
+    },
+    {
+        url: 'https://i.picsum.photos/id/139/1400/800.jpg',
+        category: 'sky'
     },
 ];
 
@@ -152,7 +236,6 @@ function createDomeArray(category, load) {
     let index = Parent.getElementsByClassName(category).length;
     // console.log(index);
     let endIndex = index + load;
-    console.log(categoriesObject[category].slice(index, endIndex));
     return categoriesObject[category].slice(index, endIndex)
 }
 
