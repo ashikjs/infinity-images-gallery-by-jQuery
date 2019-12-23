@@ -122,33 +122,30 @@ function loadImages(category) {
     if (category === 'all') {
 
         let totalIndex = LoadMoreNumberAll,
-            totalCategory = uniqueCategories.length;
+            categoryList = uniqueCategories;
 
-        while (totalCategory >= 0 && totalIndex > 0) {
-            console.log(totalCategory);
-            uniqueCategories.forEach(categoryName => {
-                if (totalCategory >= 0 && totalIndex > 0) {
-                    createDome(arraySpilt(categoryName));
+        while (categoryList.length > 0 && totalIndex > 0) {
+            categoryList.forEach(categoryName => {
+                if (totalIndex > 0) {
+                    createDome(checkNullArray(categoryName));
                 }
             });
         }
 
-        function arraySpilt(categoryName) {
-            let aaa = createDomeArray(categoryName, 1);
-            if (aaa.length) {
+        function checkNullArray(categoryName) {
+            const domeArray = createDomeArray(categoryName, 1);
+            if (domeArray.length) {
                 totalIndex--;
             } else {
-                totalCategory--;
+                categoryList = categoryList.filter(category => category !== categoryName);
             }
-            return aaa;
+            return domeArray;
         }
 
     } else {
-        createDome(createDomeArray(category, LoadMoreNumber))
+        createDome(createDomeArray(category, LoadMoreNumber));
     }
 }
-
-//
 
 function createDomeArray(category, load) {
     const Parent = document.getElementById("infinityImagesLoad");
@@ -158,7 +155,6 @@ function createDomeArray(category, load) {
     console.log(categoriesObject[category].slice(index, endIndex));
     return categoriesObject[category].slice(index, endIndex)
 }
-
 
 function createDome(array) {
     array.forEach(image => {
