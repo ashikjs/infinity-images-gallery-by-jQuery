@@ -74,6 +74,14 @@ const selector = '#galleryCategoryList ul li';
 $(selector).on('click', function () {
     $(selector).removeClass('active');
     $(this).addClass('active');
+    const category = $(this).attr('data-category');
+    // console.log(category);
+    if (category === 'all') {
+        $('.ig-images').css('display', 'block')
+    } else {
+        $('.ig-images').css('display', 'none')
+        $('.' + category).css('display', 'block')
+    }
 });
 
 loadImages("all");
